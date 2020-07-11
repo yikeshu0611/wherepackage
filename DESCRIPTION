@@ -1,0 +1,26 @@
+Package: wherepackage
+Title: Search Package from CRAN and Bioconductor
+Version: 1.0
+Authors@R: 
+    c(
+    person("Jing","Zhang",role = c("aut", "cre"),email = "zj391120@163.com"),
+    person("Zhi", "Jin", role="aut")
+    )
+Description: Normally, we want to know where is the package from. Even, 
+    we want to know the current version of package from CRAN and old 
+    version from Archive.
+        loadData() loads the package information from current and archive 
+    package information. Also, package infomation of Software, AnnotatonData, 
+    ExperimentData and Workflow from the current release Bioconductor 
+    version will alse be achieved.
+        where() function will help you to search package version from results 
+    of function loadData().
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    do
+Suggests: 
+    remotes
