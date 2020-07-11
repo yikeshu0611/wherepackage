@@ -13,12 +13,8 @@ loadData(repo = getOption("repos"))
 a list contains archive, current and available package information on
 current repository, and bioconductor package information containing
 Software, AnnotatonData, ExperimentData and Workflow from the current
-release version.
+release version. see \code{\link[wherepackage]{where}}
 }
 \description{
 Load Package Information
-}
-\examples{
-# see
-\code{\link[wherepackage]{where}}
 }

@@ -18,11 +18,13 @@ a dataframe contains package name, version, modified time and source.
 Search package from CRAN, Archive, Available and Bioconductor.
 }
 \examples{
+
+\donttest{
+
 d <- loadData()
 where(d,c('purrrogress','do'))
 
 # then use command to install
-\donttest{
 remotes::install_version('purrrogress','0.1.1')
 }
 

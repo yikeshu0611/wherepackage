@@ -7,11 +7,13 @@
 #' @export
 #'
 #' @examples
+#'
+#' \donttest{
+#'
 #' d <- loadData()
 #' where(d,c('purrrogress','do'))
 #'
 #' # then use command to install
-#' \donttest{
 #' remotes::install_version('purrrogress','0.1.1')
 #' }
 #'
@@ -20,11 +22,6 @@ where <- function(data,packages){
     do.call(rbind,x)
 }
 where.i <-function (data,package){
-    # aliases <-{
-    #     con <- gzcon(url('https://mirrors.tongji.edu.cn/CRAN//src/contrib/Meta/aliases.rds', "rb"))
-    #     on.exit(close(con))
-    #     readRDS(con)
-    # }
 
     # df1------------------------------archive
     archive=data$archive
@@ -32,9 +29,9 @@ where.i <-function (data,package){
     if (package %in% names(archive)){
         ah=archive[[package]]
         df1=data.frame(package=package,
+                       source='Archive',
                        version=do::Replace0(rownames(ah),c('.*_','.tar.gz')),
-                       mtime=gsub(' .*','',ah[,'mtime']),
-                       source='Archive')
+                       mtime=gsub(' .*','',ah[,'mtime']))
     }
     # ---------------------------------avalible
     version=''
@@ -45,18 +42,18 @@ where.i <-function (data,package){
     current=data$current
     if (package %in% rownames(current)){
         df2=data.frame(package=package,
+                       source='CRAN',
                        version=ifelse(nchar(version)>0,paste0('current:',version),'current'),
-                       mtime=do::Replace0(current[package,'mtime'],' .*'),
-                       source='CRAN')
+                       mtime=do::Replace0(current[package,'mtime'],' .*'))
     }
     # df3------------------------------bioconductor
     df3=NULL
     bioc=data$bioconductor[,c('Package','Version')]
     if (package %in% bioc[,'Package']){
         df3=data.frame(package=package,
+                       source='Bioconductor',
                        version=bioc[package,'Version'],
-                       mtime='',
-                       source='Bioconductor')
+                       mtime='')
     }
     rbind(df1,df2,df3)
 }

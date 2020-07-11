@@ -1,0 +1,10 @@
+---
+title: "update"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{update}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+## first update
+- data: 2020-07-11

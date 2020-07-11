@@ -10,9 +10,9 @@ Description: Normally, we want to know where is the package from. Even,
     we want to know the current version of package from CRAN and old 
     version from Archive.
         loadData() loads the package information from current and archive 
-    package information. Also, package infomation of Software, AnnotatonData, 
-    ExperimentData and Workflow from the current release Bioconductor 
-    version will alse be achieved.
+    package information. Also, package information of Software, Annotation Data, 
+    Experiment Data and Work flow from the current release Bioconductor 
+    version will also be achieved.
         where() function will help you to search package version from results 
     of function loadData().
 License: GPL-2
@@ -21,6 +21,10 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports: 
-    do
+    do,
+    rio
 Suggests: 
-    remotes
+    remotes,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
